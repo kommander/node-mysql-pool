@@ -159,14 +159,14 @@ of node-mysql for method related information.
 <h3 id="NoConnection">Methods unrelated to connections</h3>
 
     format(sql, params)
-    function(val)
+    escape(val)
 
 Will behave exactly like the original methods. They do not belong to a single
 connection.
 
 <h3 id="EventError">event: 'error' (err)</h3>
 
-Emitted if end only if an error occurred and no callback function was supplied.
+Emitted if and only if an error occurred and no callback function was supplied.
 You should always supply a callback function!
 
 <h2 id="Todo">Todo</h2>
