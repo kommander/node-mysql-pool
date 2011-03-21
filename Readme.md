@@ -19,6 +19,8 @@ If you find an error, please file an [issue](https://github.com/Kijewski/node-my
 <h2 id="Contributors">Contributors</h2>
 
 * [René Kijewski](https://github.com/Kijewski)
+* [Michael Lai](https://github.com/melin)
+    (fixed [issue #1](https://github.com/Kijewski/node-mysql-pool/issues#issue/1))
 
 <h2 id="Compatibility">Compatibility</h2>
 
