@@ -35,10 +35,10 @@ speed-up, when you have many short living connections, e.g. with message board a
 ```javascript
 var MySQLPool = require("mysql-pool").MySQLPool;
 var pool = new MySQLPool({
-poolSize: 4,
-user:     'root',
-password: 'root',
-database: 'test'
+  poolSize: 4,
+  user:     'root',
+  password: 'root',
+  database: 'test'
 });
 
 pool.query("SELECT 'Hello, World!' AS hello", function(err, rows, fields) {
@@ -48,8 +48,8 @@ pool.query("SELECT 'Hello, World!' AS hello", function(err, rows, fields) {
 
 for(var i = 0; i < 10; ++i) {
   pool.query("SELECT SLEEP(2), ? AS i", [i], function(err, rows, fields) {
-if(err) throw err;
-console.log("Slept: " + rows[0].i);
+    if(err) throw err;
+    console.log("Slept: " + rows[0].i);
   });
 }
 ```
@@ -74,6 +74,8 @@ If you find an error, please file an [issue](https://github.com/Kijewski/node-my
     (fixed [issue #1](https://github.com/Kijewski/node-mysql-pool/pull/1))
 * [Daniel Dickison](https://github.com/danieldickison)
     (fixed [issue #3](https://github.com/Kijewski/node-mysql-pool/pull/3))
+* [dall](https://github.com/dall)
+    (spotted [issue #5](https://github.com/Kijewski/node-mysql-pool/issues/5))
 
 <a name="Compatibility"></a>
 <h2>Compatibility</h2>
