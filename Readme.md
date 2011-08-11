@@ -32,25 +32,27 @@ speed-up, when you have many short living connections, e.g. with message board a
 <a name="Tutorial"></a>
 <h2>Tutorial</h2>
 
-    var MySQLPool = require("mysql-pool").MySQLPool;
-    var pool = new MySQLPool({
-        poolSize: 4,
-        user:     'root',
-        password: 'root',
-        database: 'test'
-    });
-    
-    pool.query("SELECT 'Hello, World!' AS hello", function(err, rows, fields) {
-      if(err) throw err;
-      console.log(rows[0].hello);
-    });
-    
-    for(var i = 0; i < 10; ++i) {
-      pool.query("SELECT SLEEP(2), ? AS i", [i], function(err, rows, fields) {
-        if(err) throw err;
-        console.log("Slept: " + rows[0].i);
-      });
-    }
+```javascript
+var MySQLPool = require("mysql-pool").MySQLPool;
+var pool = new MySQLPool({
+poolSize: 4,
+user:     'root',
+password: 'root',
+database: 'test'
+});
+
+pool.query("SELECT 'Hello, World!' AS hello", function(err, rows, fields) {
+  if(err) throw err;
+  console.log(rows[0].hello);
+});
+
+for(var i = 0; i < 10; ++i) {
+  pool.query("SELECT SLEEP(2), ? AS i", [i], function(err, rows, fields) {
+if(err) throw err;
+console.log("Slept: " + rows[0].i);
+  });
+}
+```
 
 You probably do not have to change anything if you already used
 [node-mysql](https://github.com/felixge/node-mysql/)
@@ -111,12 +113,12 @@ know which connection was actually used.)
 <a name="NewPool"></a>
 <h3>Creation of a new pool</h3>
 
-    mysqlPool.Pool(options)
+    mysqlPool.Pool([options])
 
 creates a new, currently empty. Any property for the single connections or
 the connectionpool, resp., can be set using the `options` object.
 
-If the parameter `poolsize` is omitted, the value of `client.poolsize`, or 1 is used.
+If the parameter `poolsize` is omitted, 1 is used.
 
 Only if all connection attemps failed `err` is supplied.
 If some connections failed, `result.error` will contain a list of Errors.
